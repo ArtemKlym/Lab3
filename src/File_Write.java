@@ -1,6 +1,4 @@
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
 public class File_Write {
@@ -33,14 +31,34 @@ public class File_Write {
     }
 
     private void write_byte() {
+        switch(chooseMethod()){
+            case 1 -> rewriteByte();
+            case 2 -> appendByte();
+        }
+    }
+
+    private void appendByte() {
+    }
+
+    private void rewriteByte() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Write line");
+        try(OutputStream os = new FileOutputStream("byte.dat")){
+            String str = scanner.nextLine();
+            byte[] bytes = str.getBytes();
+            os.write(bytes);
+            System.out.println("Successfully"+ " byte inserted");
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
+
     }
 
     private void write_string() throws IOException {
         switch (chooseMethod()) {
             case 1 -> rewriteString();
             case 2 -> appendString();
-            default -> {
-            }
         }
     }
 
