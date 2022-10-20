@@ -9,17 +9,18 @@ public class File_Read {
                 "\n1)String\t2)Byte\t3)Exit");
         
         int choose = scanner.nextInt();
-        
-        switch(choose){
-            case 1: read_string();
-                    Main.menu();
-                    break;
 
-            case 2: read_byte();
-                    Main.menu();
-                    break;
-
-            default: break;
+        switch (choose) {
+            case 1 -> {
+                read_string();
+                Main.menu();
+            }
+            case 2 -> {
+                read_byte();
+                Main.menu();
+            }
+            default -> {
+            }
         }
 
         scanner.close();
