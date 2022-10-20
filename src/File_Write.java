@@ -38,6 +38,21 @@ public class File_Write {
     }
 
     private void appendByte() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Write line");
+        String str = scanner.nextLine();
+        byte[] byte_append = str.getBytes();
+
+        try (FileOutputStream output = new FileOutputStream("byte.dat", true)){
+            output.write(' ');
+            output.write(byte_append);
+            System.out.println("Successfully"+ " byte appended");
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
+
     }
 
     private void rewriteByte() {
@@ -68,6 +83,7 @@ public class File_Write {
             writer.append(' ');
             String line = scannerStr.nextLine();
             writer.append(line);
+            System.out.println("Successfully"+ " string appended");
         }
          catch(IOException e){
             e.printStackTrace();
@@ -81,6 +97,7 @@ public class File_Write {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("file.txt"))){
             String line = sc.next();
             writer.write(line);
+            System.out.println("Successfully"+ " string inserted");
         } catch (IOException e) {
             e.printStackTrace();
         }
